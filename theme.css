@@ -1,0 +1,117 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+body {
+  background:rgb(237,236,235);
+
+}
+
+input {
+  border: 2px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  border-style: solid;
+  border-color: grey;
+}
+	
+button {
+	background-color: rgb(0,178,171);
+	border: 0px solid hsla(178,100%,70%,1);
+	border-radius: 5px;
+	width: 160px;
+	height: 40px;
+	color: hsla(178,60%,90%,1);
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 1em;
+	box-shadow: 0 6px 0 0 hsla(178,100%,30%,1);
+	}
+
+button:active {
+	margin-top: 3px;
+	box-shadow: 0 3px 0 0 hsla(178,100%,30%,1);
+}
+
+.search input[type=submit]{
+  border-radius: 10px;
+  width:60px;
+}
+
+  
+h1, h2, h3{
+  font-family: 'Roboto', sans-serif;
+}
+
+p, li{
+  font-family: 'Droid Sans', sans-serif;
+}
+
+#logo{
+  background-color: rgb(68,89,102);
+  color: white;
+  padding: 6px 10px;
+}
+
+.content-inner-wrapper{
+  background-color: rgb(0,178,171);
+  color:white;
+  padding:2px;
+}
+
+.main-content{
+  background: rgb(242,241,241);
+  color: rgb(32,35,36);
+  padding: 10px;
+}
+
+.cancel{
+  background-color: #fbfbfb;
+  background: linear-gradient(to bottom, #fbfbfb 0%, #e9e9e9 100%);
+  border: 1px solid #c0c0c0;
+  color: #333;
+  font-weight: 700;
+  box-shadow: 0 0 0 0 hsla(178,100%,30%,1);
+}
+
+.approved{
+  background-color: green;
+}
+
+.pending{
+  background-color: rgb(204,28,67);
+}
+
+.footer-wrapper{
+  background: rgb(68,89,102);
+  color:white;
+}
+
+.sidebar{
+  background-color: #FDB813;
+  height:500px;
+}
+
+.main-content{
+  background-color: #EDECEB;
+  height:500px;
+}
+    
+.signin{
+  background: white;
+}
+
+.footerLink{
+  color:grey;
+}
+
+.buttonNormal{
+  background-color: reg(0, 167,255);
+}
+
+a:link {
+  color: rgb(218,212,216);
+}
+
+a:visited {
+  color: grey;
+}
