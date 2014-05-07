@@ -21,13 +21,31 @@
     <div id="wrapper">
       <div id="content_wrapper">
         <div id="content_inner_wrapper">
-          <header>
+          <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+
+            <nav class="collapse navbar-collapse bs-navbar-collapse">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Chattr</a>
+              </div>  
+              <div>
+                  <ul class="nav navbar-nav">
+                    <li>Chatrooms</li>
+                    <li>Messages</li>
+                    <li>Links</li>
+                    <li>Q&A</li>
+                    <li>Files</li>
+                  </ul>
+              </div>
+            </nav>
             <div id="search-form" class="pull-right">
-              <form method="GET" action="">
+              <form method="GET" action="" class="search">
                 <input type="search" name="keywords" placeholder="Search...">
                 <input type="submit" value="Go">
               </form>
             </div>
+
+          
+          </header>
             <div id="logo">
               <h1>Chattr</h1>
             </div>
