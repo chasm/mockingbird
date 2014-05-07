@@ -11,15 +11,31 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <!-- put code here -->
+    <header>
+      <div id="search-form" class="pull-right">
+        <form method="GET" action="">
+          <input type="search" name="keywords" placeholder="Search...">
+          <input type="submit" value="Go">
+        </form>
       </div>
-    </div>
+      <div id="logo">
+        <h1>Chattr</h1>
+      </div>
+    </header>
+    <main class="container">
+      <div class="row">
+        <div class="col-md-3">Sidebar</div>
+        <div class="col-md-9">Main content</div>
+      </div>
+    </main>
+    <footer>
+      <p>Put cool shit here later. Yeah, man.</p>
+    </footer>
   </body>
 </html>
