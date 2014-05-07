@@ -3,6 +3,8 @@
 
 body {
   background:rgb(237,236,235);
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 16px;
   margin:0px;
   padding: 0px;
 }
@@ -60,7 +62,7 @@ input {
   height:40px;
   padding: 0px, 100px, 0, 0;
 }
-	
+
 button {
 	background-color: rgb(0,178,171);
 	border: 0px solid hsla(178,100%,70%,1);
@@ -78,11 +80,17 @@ button:active {
   margin-top: 3px;
 }
 
-h1, h2, h3{
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h2 {
   font-family: 'Roboto', sans-serif;
 }
 
-p, li{
+p, li {
   font-family: 'Droid Sans', sans-serif;
 }
 
@@ -103,7 +111,7 @@ p, li{
 .pending{
   background-color: rgb(204,28,67);
 }
-    
+
 .signin{
   background: white;
 }
