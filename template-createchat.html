@@ -75,7 +75,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-offset-2">
-                      <input type="submit" value="Start Chatting">
+                      <input type="submit" class="startchat" value="Start Chatting">
                     </div>
                   </div>
                 </div>
@@ -91,5 +91,12 @@
         </footer>
       </div>
     </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(".startchat").click(function(){window.location.href='chatroom.html';});
+    </script>
+    <script>
+      $(".search").click(function(){window.location.href='searchpage.html';});
+    </script>
   </body>
 </html>
