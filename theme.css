@@ -1,22 +1,50 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic);
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 
+html, body {
+  height: 100%;
+}
+
 body {
   background:rgb(237,236,235);
   font-family: 'Droid Sans', sans-serif;
   font-size: 16px;
-  margin:0px;
+  margin: 0px;
   padding: 0px;
+}
+footer {
+  background-color: hsla( 0, 0.0%, 18.8%, 1 );
+  color: hsla( 0, 0.0%, 100.0%, 1 );
+  padding: 5px;
 }
 
 .wrapper{
   background: rgb(0,178,171);
+  height: auto !important;
+  height: 100%;
+  margin: 0px 0px -41px 0px;
+  min-height: 100%;
+  width: 100%;
+}
+
+.footer-wrapper {
+  height: 41px;
+  width: 100%;
+}
+
+.content-wrapper {
+  padding: 0px 0px 41px 0px;
+  width: 100%;
 }
 
 .content-inner-wrapper{
   background-color: rgb(0,178,171);
   color:white;
   padding:0px;
+}
+
+.footer-inner-wrapper, .content-inner-wrapper {
+  margin: 0px auto;
 }
 
 .search input[type=submit]{
@@ -84,6 +112,8 @@ h1 {
   font-family: 'Roboto', sans-serif;
   font-size: 40px;
   font-weight: bold;
+  margin: 0px;
+  padding: 0px;
 }
 
 h2 {
