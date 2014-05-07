@@ -3,16 +3,19 @@
 
 body {
   background:rgb(237,236,235);
-
+  padding: 0px;
+  margin:0;
 }
 
 input {
   border: 2px;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 15px;
-  border-style: solid;
   border-color: grey;
+  border-radius: 10px;
+  border-style: solid;
+  font-size: 15px;
+  padding: 0px, 100px, 0, 0;
+  height:40px;
+  
 }
 	
 button {
@@ -35,6 +38,7 @@ button:active {
 .search input[type=submit]{
   border-radius: 10px;
   width:60px;
+  height:40px;
 }
 
   
@@ -50,12 +54,13 @@ p, li{
   background-color: rgb(82,107,122);
   color: white;
   padding: 6px 10px;
+  margin: -5px;
 }
 
 .content-inner-wrapper{
   background-color: rgb(0,178,171);
   color:white;
-  padding:2px;
+  padding:0px;
 }
 
 .main-content{
@@ -88,12 +93,12 @@ p, li{
 
 .sidebar{
   background-color: #FDB813;
-  height:500px;
+  height:560px;
 }
 
 .main-content{
   background-color: #EDECEB;
-  height:500px;
+  height:560px;
 }
     
 .signin{
@@ -114,4 +119,8 @@ a:link {
 
 a:visited {
   color: grey;
+}
+
+.wrapper{
+  background: rgb(0,178,171);
 }
