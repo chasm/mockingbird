@@ -253,7 +253,7 @@
       };
       return $('#messages-box').append(messageTemplate(message));
     });
-    return $('#main').on('click', '#new-room-button', function(e) {
+    $('#main').on('click', '#new-room-button', function(e) {
       e.preventDefault();
       unsetActive();
       main.html(newRoomTemplate({
@@ -262,6 +262,22 @@
       return $('#list-of-users').multiselect({
         includeSelectAllOption: true
       });
+    });
+    return $('#main').on('submit', '#new-room-form', function(e) {
+      var indices, members, newRoom;
+      e.preventDefault();
+      indices = $(this).find('#list-of-users').val();
+      members = indices ? indices.slice(1).map(function(idx) {
+        return users[parseInt(idx)];
+      }) : [];
+      newRoom = {
+        title: $(this).find('#room-title').val(),
+        description: $(this).find('#room-description').val(),
+        tags: $(this).find('#room-tags').val().split(" "),
+        archivable: $(this).find('input[name=archivable]:checked').val() === "true",
+        users: members
+      };
+      return console.log(newRoom);
     });
   });
 

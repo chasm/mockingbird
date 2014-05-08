@@ -241,7 +241,19 @@ $ ->
     main.html newRoomTemplate( users: users )
     $('#list-of-users').multiselect( includeSelectAllOption: true )
 
-  $('#main').on 'click', '#create-room', (e) ->
-    alert "submitting!"
+  $('#main').on 'submit', '#new-room-form', (e) ->
     e.preventDefault()
-    # console.log $(@).find('#room-title').val()
+    indices = $(@).find('#list-of-users').val()
+    members =
+      if indices
+        indices[1..].map (idx) ->
+          users[parseInt(idx)]
+      else
+        []
+    newRoom =
+      title: $(@).find('#room-title').val()
+      description: $(@).find('#room-description').val()
+      tags: $(@).find('#room-tags').val().split(" ")
+      archivable: $(@).find('input[name=archivable]:checked').val() == "true"
+      users: members
+    console.log newRoom
