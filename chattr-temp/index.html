@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Chattr</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script id="rooms-template" type="text/x-handlebars-template">
+      <p>{{link}} go here</p>
+    </script>
+
+    <script id="links-template" type="text/x-handlebars-template">
+      <p>{{link}} go here</p>
+    </script>
+
+    <script id="uploads-template" type="text/x-handlebars-template">
+      <p>{{link}} go here</p>
+    </script>
+
+    <script id="challenges-template" type="text/x-handlebars-template">
+      <p>{{link}} go here</p>
+    </script>
+
+    <script id="users-template" type="text/x-handlebars-template">
+      <section id="users-page" class="pages">
+        <header class="row">
+          <h1 class="col-md-12">Students</h1>
+        </header>
+        <div class="row">
+          {{#each students}}
+            <div class="col-md-4">
+              <div class="user-box">
+                <img class="avatar" src="/img/{{avatar}}" width="60" height="60" alt="{{name}}">
+                <a href="#">{{name}}</a>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        <header class="row">
+          <h1 class="col-md-12">Instructors</h1>
+        </header>
+        <div class="row">
+          {{#each instructors}}
+            <div class="col-md-4">
+              <div class="user-box">
+                <img class="avatar" src="/img/{{avatar}}" width="60" height="60" alt="{{name}}">
+                <a href="#">{{name}}</a>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        <header class="row">
+          <h1 class="col-md-12">Staff</h1>
+        </header>
+        <div class="row">
+          {{#each staff}}
+            <div class="col-md-4">
+              <div class="user-box">
+                <img class="avatar" src="/img/{{avatar}}" width="60" height="60" alt="{{name}}">
+                <a href="#">{{name}}</a>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </section>
+    </script>
+  </head>
+
+  <body>
+    <header id="page-header" class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Chattr</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul id="header-navlinks" class="nav navbar-nav">
+            <li data-linkto="rooms" class="active"><a href="#">Rooms</a></li>
+            <li data-linkto="links"><a href="#">Links</a></li>
+            <li data-linkto="uploads"><a href="#">Uploads</a></li>
+            <li data-linkto="challenges"><a href="#">Challenges</a></li>
+            <li data-linkto="users"><a href="#">Users</a></li>
+          </ul>
+          <form id="search-form" class="navbar-form navbar-right">
+            <fieldset id="advanced-search" class="advanced-search">
+              <label class="checkbox-inline">
+                <input type="checkbox" id="archived-checkbox" value="archived" checked> Archived
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" id="current-checkbox" value="current" checked> Current
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" id="tags-checkbox" value="tags" checked> Tags
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" id="titles-checkbox" value="titles" checked> Titles
+              </label>
+            </fieldset>
+            <input id="search-field" type="text" class="form-control" placeholder="Search...">
+            <button id="search-submit" class="btn btn-sm btn-primary">Go</button>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <!-- Insert page content -->
+    <main id="main" class="container"></main>
+
+    <footer>
+      <div class="container">
+        <p class="text-muted">
+          &copy; 2014 DaVinciCMS &bull;
+          <a href="#">Privacy Policy</a> &bull;
+          <a href="#">Terms of Use</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
