@@ -231,7 +231,7 @@
       unsetActive();
       return main.html(resultsTemplate());
     });
-    $('#main').on('click', '.room-title a', function(e) {
+    $('#main').on('click', '.room-title a, .rooms li a', function(e) {
       var idx, room;
       e.preventDefault();
       unsetActive();
@@ -247,11 +247,12 @@
     $('#main').on('click', '#send-message', function(e) {
       var message;
       message = {
-        message: $('#say-something textarea').val(),
+        message: $('#message-input').val(),
         user: currentUser,
         type: 'comment'
       };
-      return $('#messages-box').append(messageTemplate(message));
+      $('#messages-box').append(messageTemplate(message));
+      return $('#message-input').html('');
     });
     $('#main').on('click', '#new-room-button', function(e) {
       e.preventDefault();
@@ -277,7 +278,8 @@
         archivable: $(this).find('input[name=archivable]:checked').val() === "true",
         users: members
       };
-      return console.log(newRoom);
+      rooms = rooms.concat([newRoom]);
+      return $('#rooms-link').click();
     });
   });
 

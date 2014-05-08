@@ -216,7 +216,7 @@ $ ->
     unsetActive()
     main.html resultsTemplate()
 
-  $('#main').on 'click', '.room-title a', (e) ->
+  $('#main').on 'click', '.room-title a, .rooms li a', (e) ->
     e.preventDefault()
     unsetActive()
     idx = $(@).data('room')
@@ -230,10 +230,11 @@ $ ->
 
   $('#main').on 'click', '#send-message', (e) ->
     message =
-      message: $('#say-something textarea').val()
+      message: $('#message-input').val()
       user: currentUser
       type: 'comment'
     $('#messages-box').append messageTemplate( message )
+    $('#message-input').html ''
 
   $('#main').on 'click', '#new-room-button', (e) ->
     e.preventDefault()
@@ -256,4 +257,7 @@ $ ->
       tags: $(@).find('#room-tags').val().split(" ")
       archivable: $(@).find('input[name=archivable]:checked').val() == "true"
       users: members
-    console.log newRoom
+
+    rooms = rooms.concat([newRoom])
+
+    $('#rooms-link').click()

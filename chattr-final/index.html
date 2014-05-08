@@ -141,7 +141,7 @@
             <div class="message-box row">
               <form id="say-something" class="inline-form" method="GET" action="#">
                 <div class="input-group">
-                  <input class="form-control" type="text" name="message" placeholder="Say something...">
+                  <input id="message-input" class="form-control" type="text" name="message" placeholder="Say something...">
                   <div id="send-message" class="input-group-btn dropup">
                     <button type="button" class="btn btn-danger">Post</button>
                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
@@ -184,7 +184,7 @@
               {{#each rooms}}
                 <li class="{{#if archivable}}paperclip{{else}}fire{{/if}}">
                   <span class="glyphicon glyphicon-{{#if archivable}}paperclip{{else}}fire{{/if}}"></span>
-                  {{title}}
+                  <a href="#" data-room="{{@index}}">{{title}}</a>
                 </li>
               {{/each}}
               </ul>
