@@ -1,6 +1,15 @@
 $ ->
   $('#advanced-fields').hide()
 
+  Handlebars.registerHelper 'latestMessage', (messages, options) ->
+    if messages and messages.length > 0
+      messages[messages.length - 1].message
+    else
+      new Handlebars.SafeString( "<span class=\"no-messages\">No messages yet.</span>" )
+
+  select2Init = ->
+   $('#list-of-users').select2()
+
   unsetActive = () ->
     $('#header-navlinks').children().removeClass('active')
 
@@ -8,6 +17,17 @@ $ ->
     lnk = $(lnk)
     unsetActive()
     lnk.parent().addClass('active')
+
+  oneLiners = [
+    "I never forget a face, but in your case I'd be glad to make an exception."
+    "My Dad used to say 'always fight fire with fire', which is probably why he got thrown out of the fire brigade."
+    "Start every day off with a smile and get it over with."
+    "This radio lark's a wonderful hobby, y'know. I've got friends all over the world, all over the world... none in this country, but friends all over the world."
+    "My wife sent her photograph to the Lonely Hearts Club. They sent it back saying they weren't that lonely."
+    "Life is full of misery, loneliness, and suffering - and it's all over much too soon."
+    "My definition of an intellectual is someone who can listen to the William Tell Overture without thinking of the Lone Ranger."
+    "I'm on a whiskey diet. I've lost three days already."
+  ]
 
   roomsTemplate = Handlebars.compile $("#rooms-template").html()
   newRoomTemplate = Handlebars.compile $("#new-room-template").html()
@@ -176,6 +196,16 @@ $ ->
 
   main.html roomsTemplate( rooms: rooms )
 
+  goToRoom = (idx) =>
+    room = rooms[parseInt(idx)]
+    room["rooms"] = rooms
+    main.html roomTemplate( room )
+    setTimeout(
+      -> $('.start-shut').collapse('hide')
+      500
+    )
+    $('#message-input').focus()
+
   $('header').on 'click', '#rooms-link', (e) ->
     e.preventDefault()
     setActive(@)
@@ -220,44 +250,71 @@ $ ->
     e.preventDefault()
     unsetActive()
     idx = $(@).data('room')
-    room = rooms[idx]
-    room["rooms"] = rooms
-    main.html roomTemplate( room )
+    goToRoom idx
 
   $('#main').on 'click', 'ul.challenges li', (e) ->
     e.preventDefault()
     $(@).find('.answers').toggle('blind')
 
-  $('#main').on 'click', '#send-message', (e) ->
+  postMessage = ->
     message =
       message: $('#message-input').val()
       user: currentUser
       type: 'comment'
+    $('#message-input').val ''
     $('#messages-box').append messageTemplate( message )
-    $('#message-input').html ''
+    setTimeout(
+      ->
+        message =
+          message: oneLiners.pop()
+          user: staff[3]
+          type: 'comment'
+        $('#messages-box').append messageTemplate( message )
+      1000
+    )
+
+  $('#main').on 'click', '#send-message', (e) ->
+    postMessage()
+
+  $('#main').on 'submit', '#say-something', (e) ->
+    e.preventDefault()
+    postMessage()
 
   $('#main').on 'click', '#new-room-button', (e) ->
     e.preventDefault()
     unsetActive()
     main.html newRoomTemplate( users: users )
-    $('#list-of-users').multiselect( includeSelectAllOption: true )
 
   $('#main').on 'submit', '#new-room-form', (e) ->
     e.preventDefault()
     indices = $(@).find('#list-of-users').val()
     members =
       if indices
-        indices[1..].map (idx) ->
+        indices.map (idx) ->
           users[parseInt(idx)]
       else
         []
     newRoom =
       title: $(@).find('#room-title').val()
       description: $(@).find('#room-description').val()
-      tags: $(@).find('#room-tags').val().split(" ")
+      tags: $(@).find('#room-tags').val()
       archivable: $(@).find('input[name=archivable]:checked').val() == "true"
       users: members
 
     rooms = rooms.concat([newRoom])
 
-    $('#rooms-link').click()
+    goToRoom rooms.length - 1
+
+   $('#main').on 'click', '#select-all-users', (e) ->
+     if $('#select-all-users').is ':checked'
+       $('#list-of-users > option').prop 'selected', 'selected'
+       $('#list-of-users').trigger 'change'
+     else
+       $('#list-of-users > option').removeAttr 'selected'
+       $('#list-of-users').trigger 'change'
+
+  $('#main').on 'click', '#new-room-button', (e) ->
+     e.preventDefault()
+     unsetActive()
+     main.html newRoomTemplate( users: users )
+     select2Init()

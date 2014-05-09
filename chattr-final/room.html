@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Chattr</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/select2/3.4.8/select2.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <header class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Chattr</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul id="header-navlinks" class="nav navbar-nav">
+          <li class="active"><a id="rooms-link" href="#">Rooms</a></li>
+          <li><a id="links-link" href="#">Links</a></li>
+          <li><a id="questions-link" href="#">Questions</a></li>
+          <li><a id="uploads-link" href="#">Uploads</a></li>
+          <li><a id="users-link" href="#">Users</a></li>
+        </ul>
+        <form id="search-form" class="navbar-form navbar-right">
+          <fieldset id="advanced-fields" class="advanced-fields">
+            <label class="checkbox-inline">
+              <input type="checkbox" name="archived" value="true" checked> archived
+          </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="active" value="true" checked> active
+          </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="tags" value="true" checked> tags
+          </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="titles" value="true" checked> titles
+            </label>
+          </fieldset>
+          <input id="search-field" type="text" class="form-control" placeholder="Search...">
+          <button class="btn btn-sm btn-primary search"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main container">
+    <section id="chat-room" class="chat-room">
+      <div class="row">
+        <section id="chat-messages" class="col-md-8 messages">
+          <header class="row">
+            <h1>
+              <span class="glyphicon glyphicon-paperclip"></span>
+              Lorem ipsum dolor
+            </h1>
+          </header>
+          <div id="messages-box" class="messages-box row">
+            <div class="row">
+              <div class="col-md-2">
+                <div class="message-avatar" title="James Brown">
+                  <img src="/img/james_brown.jpg" width="60" height="60" alt="James Brown">
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="message">Three.  Three.  And we'd better not risk another frontal assault, that rabbit's dynamite.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="message-avatar" title="Joseph Stalin">
+                  <img src="/img/joseph_stalin.jpg" width="60" height="60" alt="Joseph Stalin">
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="message">Would it help to confuse it if we run away more?</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="message-avatar" title="James Brown">
+                  <img src="/img/james_brown.jpg" width="60" height="60" alt="James Brown">
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="message">Oh, shut up and go and change your armor.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="message-avatar" title="Muhammad Ali">
+                  <img src="/img/muhammad_ali.jpg" width="60" height="60" alt="Muhammad Ali">
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="message">Let us taunt it!  It may become so cross that it will make a mistake.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="message-avatar" title="James Brown">
+                  <img src="/img/james_brown.jpg" width="60" height="60" alt="James Brown">
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="message">Like what?</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="message-avatar" title="Mohandas K. Gandhi">
+                  <img src="/img/mohandas_k_gandhi.jpg" width="60" height="60" alt="Mohandas K. Gandhi">
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="message">We have the Holy Hand Grenade.</div>
+              </div>
+            </div>
+          </div>
+          <div class="message-box row">
+            <form id="say-something" class="inline-form" method="GET" action="#">
+              <div class="input-group">
+                <input id="message-input" class="form-control" type="text" name="message" placeholder="Say something...">
+                <div id="send-message" class="input-group-btn dropup">
+                  <button type="button" class="btn btn-danger">Post</button>
+                  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a id="post-message" href="#">Post</a></li>
+                    <li><a href="#">Ask</a></li>
+                    <li><a href="#">Answer</a></li>
+                    <li><a href="#">Mention</a></li>
+                    <li><a href="#">Tag</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Upload</a></li>
+                  </ul>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+        <aside class="col-md-4">
+          <div class="panel-group" id="accordion">
+            <section id="room-links-list" class="panel panel-default">
+              <div class="panel-heading">
+                <header>
+                  <h2 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                      Links
+                    </a>
+                  </h2>
+                </header>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <ul class="links">
+                    <li>
+                      <a href="http://www.imdb.com/title/tt0071853/?ref_=fn_al_tt_2">The Holy Grail</a><br>
+                      <span class="tags">silly funny</span>
+                    </li>
+                    <li>
+                      <a href="http://www.imdb.com/title/tt0079470/?ref_=fn_al_tt_1">The Life of Brian</a><br>
+                      <span class="tags">blasphemous funnier</span>
+                    </li>
+                    <li>
+                      <a href="http://www.imdb.com/title/tt0085959/?ref_=fn_al_tt_5">The Meaning of Life</a><br>
+                      <span class="tags">shocking hilarious controversial</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <section id="room-challenges-list" class="panel panel-default">
+              <div class="panel-heading">
+                <header>
+                  <h2 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                      Questions
+                    </a>
+                  </h2>
+                </header>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <ul class="challenges">
+                    <li class="question">
+                      <a href="#">What is your name?</a>
+                      <ol class="answers">
+                        <li class="answer">Lancelot</li>
+                        <li class="answer">Sir Robin</li>
+                        <li class="answer">Guinevere</li>
+                        <li class="answer">Arthur</li>
+                        <li class="answer">All of the above</li>
+                      </ol>
+                    </li>
+                    <li class="question">
+                      <a href="#">What is your quest?</a>
+                      <ol class="answers">
+                        <li class="answer">To explore strange new worlds</li>
+                        <li class="answer">To seek out new life and new civilizations</li>
+                        <li class="answer">To boldy go where no one has gone before</li>
+                        <li class="answer">The Holy Grail</li>
+                        <li class="answer">All of the above</li>
+                      </ol>
+                    </li>
+                    <li class="question">
+                      <a href="#">What is your favorite color?</a>
+                      <ol class="answers">
+                        <li class="answer">Alabaster</li>
+                        <li class="answer">Puce</li>
+                        <li class="answer">Burnt Sienna</li>
+                        <li class="answer">Chartreuse</li>
+                        <li class="answer">All of the above</li>
+                      </ol>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <section id="room-uploads-list" class="panel panel-default">
+              <div class="panel-heading">
+                <header>
+                  <h2 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                      Uploads
+                    </a>
+                  </h2>
+                </header>
+              </div>
+              <div id="collapseFour" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <ul class="rooms">
+                    <li class="paperclip">
+                      <span class="glyphicon glyphicon-paperclip"></span>
+                      <a href="#" data-room="0">Lorem ipsum dolor</a>
+                    </li>
+                    <li class="paperclip">
+                      <span class="glyphicon glyphicon-paperclip"></span>
+                      <a href="#" data-room="1">Mauris blandit aliquet</a>
+                    </li>
+                    <li class="paperclip">
+                      <span class="glyphicon glyphicon-paperclip"></span>
+                      <a href="#" data-room="2">Consectetur adipiscing</a>
+                    </li>
+                    <li class="fire">
+                      <span class="glyphicon glyphicon-fire"></span>
+                      <a href="#" data-room="3">Eget tincidunt nibh</a>
+                    </li>
+                    <li class="paperclip">
+                      <span class="glyphicon glyphicon-paperclip"></span>
+                      <a href="#" data-room="4">Nulla quis lorem</a>
+                    </li>
+                    <li class="fire">
+                      <span class="glyphicon glyphicon-fire"></span>
+                      <a href="#" data-room="5">Libero malesuada</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+            <section id="room-users-list" class="panel panel-default">
+              <div class="panel-heading">
+                <header>
+                  <h2 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                      Members
+                    </a>
+                  </h2>
+                </header>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <ul class="users">
+                    <li class="cog">
+                      <span class="glyphicon glyphicon-cog"></span>
+                      James Brown
+                    </li>
+                    <li class="cog">
+                      <span class="glyphicon glyphicon-cog"></span>
+                      John Cleese
+                    </li>
+                    <li class="cog">
+                      <span class="glyphicon glyphicon-cog"></span>
+                      Joseph Stalin
+                    </li>
+                    <li class="cog">
+                      <span class="glyphicon glyphicon-cog"></span>
+                      Mohandas K. Gandhi
+                    </li>
+                    <li class="cog">
+                      <span class="glyphicon glyphicon-cog"></span>
+                      Muhammad Ali
+                    </li>
+                    <li class="wrench">
+                      <span class="glyphicon glyphicon-wrench"></span>
+                      Albert Einstein
+                    </li>
+                    <li class="wrench">
+                      <span class="glyphicon glyphicon-wrench"></span>
+                      Boris Karloff
+                    </li>
+                    <li class="earphone">
+                      <span class="glyphicon glyphicon-earphone"></span>
+                      Ernesto Guevara
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="text-muted pull-right">
+        &copy; 2014 by <a href="#">DaVinci</a> &bull;
+        <a href="#">Privacy Policy</a> &bull;
+        <a href="#">Terms of Use</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdn.jsdelivr.net/select2/3.4.8/select2.js"></script>
+  <script src="/js/app.js"></script>
+  </body>
+</html>
